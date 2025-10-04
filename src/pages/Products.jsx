@@ -62,14 +62,14 @@ const Products = () => {
         Produktet tona
       </div>
 
-      <div className="mt-10 flex flex-col items-center gap-6 px-4">
-        <div className="flex flex-col sm:flex-row gap-4 items-center w-full max-w-3xl">
-          <label className="w-full sm:w-1/3">
-            <span className="block mb-1 font-semibold">Kërko sipas markës</span>
+      <div className="mt-10 flex flex-col items-center gap-6 px-4 mb-16">
+        <div className="flex flex-col sm:flex-row gap-4 items-end w-full max-w-4xl">
+          <label className="w-full sm:flex-1">
+            <span className="block mb-2 font-medium text-sm">Kërko sipas markës</span>
             <input
               type="text"
               placeholder="Shkruaj emrin e markës..."
-              className="w-full border border-gray-300 px-3 py-2 rounded-md"
+              className="w-full border border-gray-700 bg-gray-900 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-white transition"
               onChange={(e) => {
                 const userInput = e.target.value.toLowerCase();
                 const filteredData = glassesData.filter(item =>
@@ -80,12 +80,12 @@ const Products = () => {
             />
           </label>
 
-          <label className="w-full sm:w-1/3">
-            <span className="block mb-1 font-semibold">Çmimi minimal</span>
+          <label className="w-full sm:flex-1">
+            <span className="block mb-2 font-medium text-sm">Çmimi minimal (€)</span>
             <input
               type="number"
               placeholder="P.sh. 100"
-              className="w-full border border-gray-300 px-3 py-2 rounded-md"
+              className="w-full border border-gray-700 bg-gray-900 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-white transition"
               onChange={(e) => {
                 const userPrice = e.target.value;
                 const filteredData = glassesData.filter(item => item.price > userPrice);
@@ -94,12 +94,12 @@ const Products = () => {
             />
           </label>
 
-          <label className="w-full sm:w-1/3">
-            <span className="block mb-1 font-semibold">Çmimi maksimal</span>
+          <label className="w-full sm:flex-1">
+            <span className="block mb-2 font-medium text-sm">Çmimi maksimal (€)</span>
             <input
               type="number"
               placeholder="P.sh. 250"
-              className="w-full border border-gray-300 px-3 py-2 rounded-md"
+              className="w-full border border-gray-700 bg-gray-900 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-white transition"
               onChange={(e) => {
                 const userPrice = e.target.value;
                 const filteredData = glassesData.filter(item => item.price < userPrice);
@@ -108,21 +108,25 @@ const Products = () => {
             />
           </label>
 
-          <input
-            type="reset"
-            onClick={()=>{
+          <button
+            type="button"
+            onClick={() => {
               setData(glassesData)
             }}
-          />
+            className="border border-gray-600 px-6 py-3 rounded-lg hover:bg-gray-800 transition font-medium"
+          >
+            Pastro filtrat
+          </button>
         </div>
       </div>
 
-      <div className='w-full mt-20 flex justify-center'>
-        <div className='grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 gap-6'>
+      <div className='w-full mt-10 flex justify-center px-4 pb-16'>
+        <div className='grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 max-w-7xl'>
           {
-            data.map((glassItem) => {
+            data.map((glassItem, index) => {
               return (
                 <Glasses
+                  key={index}
                   img={glassItem.img}
                   name={glassItem.name}
                   code={glassItem.code}
