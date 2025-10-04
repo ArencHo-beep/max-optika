@@ -1,6 +1,8 @@
-const Glasses = ({ img, name, code, price, no_of_colors }) => {
+import { Link } from 'react-router-dom'
+
+const Glasses = ({ id, img, name, code, price, no_of_colors }) => {
     return (
-        <div className='w-full bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-gray-600 transition-all duration-300 group'>
+        <Link to={`/product/${id}`} className='block w-full bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-gray-600 transition-all duration-300 group cursor-pointer'>
             <div className='flex justify-center items-center mb-4 overflow-hidden rounded-lg bg-gray-800 h-48'>
                 <img
                     className='w-full h-full object-contain group-hover:scale-110 transition-transform duration-300'
@@ -24,7 +26,7 @@ const Glasses = ({ img, name, code, price, no_of_colors }) => {
                     {no_of_colors} ngjyra të disponueshme
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 
