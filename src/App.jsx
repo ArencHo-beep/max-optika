@@ -12,6 +12,7 @@ function App() {
   return (
     <>
       <NavScroll />
+      Pershendetje
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
