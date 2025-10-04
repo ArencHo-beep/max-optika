@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
+*{
+    font-family: cursive;
+    font-optical-sizing: auto;
+}
+
 body{
-    background-color: black;
+    background-color: #0F0F0F;
     color: white;
 }
